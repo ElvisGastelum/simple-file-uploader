@@ -1,0 +1,17 @@
+.main {
+  padding: 0 96px;
+}
+
+.header--logo {
+  max-width: 200px;
+  display: none;
+}
+
+.header--title {
+  font-size: 40px;
+}
+
+.header--subtitle {
+  font-weight: 300;
+}
+

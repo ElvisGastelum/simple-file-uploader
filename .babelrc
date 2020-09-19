@@ -9,16 +9,5 @@
       }
     ],
     "@babel/react"
-  ],
-  "plugins": [
-    [
-      "prismjs",
-      {
-        "languages": ["javascript", "css", "markup", "md", "json", "shell"],
-        "plugins": ["command-line"],
-        "theme": "default",
-        "css": true
-      }
-    ]
   ]
 }

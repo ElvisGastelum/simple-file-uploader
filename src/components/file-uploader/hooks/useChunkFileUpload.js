@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import * as UpChunk from '@mux/upchunk';
 
-const useFileUpload = (endPoint) => {
+const useChunkFileUpload = ({ endPoint, chunkSize }) => {
   const [progress, setProgress] = useState(0);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const element = e.target;
+
+    if (element.files.lenght === 0) {
+      return;
+    }
+
     const getUploadUrl = () =>
       fetch(endPoint, {
         method: 'GET',
@@ -27,7 +32,7 @@ const useFileUpload = (endPoint) => {
     const upload = UpChunk.createUpload({
       endpoint: getUploadUrl,
       file: element.files[0],
-      chunkSize: 5120,
+      chunkSize: chunkSize,
     });
 
     upload.on('error', (err) => {
@@ -46,4 +51,4 @@ const useFileUpload = (endPoint) => {
   return [handleChange, progress, success, error];
 };
 
-export { useFileUpload };
+export { useChunkFileUpload };

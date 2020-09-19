@@ -1,9 +1,13 @@
 import React from 'react';
-import { useFileUpload } from './hooks/useFileUpload';
+import { useChunkFileUpload } from './hooks/useChunkFileUpload';
 import Error from './compoenents/Error';
 
 const FileUploader = ({ toUrl }) => {
-  const [handleChange, progress, success, error] = useFileUpload(toUrl);
+  const [handleChange, progress, success, error] = useChunkFileUpload({
+    endPoint: toUrl,
+    chunkSize: 5120,
+  });
+
   if (error) {
     return <Error />;
   }

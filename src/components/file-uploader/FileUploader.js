@@ -16,7 +16,7 @@ const FileUploader = ({ toUrl }) => {
         <input type="file" name="upload file" onChange={handleChange} />
       </form>
       {
-        progress != 0 && progress < 100 && <h2>Progress: {progress}%</h2>
+        progress != 0 && progress < 100 && <h2>Progress: {Math.round(progress)}%</h2>
       }
       {
         success && <h2>Upload Complete! :)</h2>

@@ -7,7 +7,9 @@
     "start": "webpack-dev-server --mode development --hot",
     "dev": "webpack -w --mode development",
     "build": "webpack --mode production",
-    "format": "prettier --write ."
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\""
   },
   "keywords": [],
   "author": "",
@@ -16,12 +18,18 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-prismjs": "^2.0.1",
     "css-loader": "^4.2.1",
     "dotenv": "^8.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "prettier": "^2.1.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
@@ -30,10 +38,23 @@
   "dependencies": {
     "@mux/upchunk": "^2.0.0",
     "normalize.css": "^8.0.1",
-    "prettier": "^2.1.2",
-    "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }

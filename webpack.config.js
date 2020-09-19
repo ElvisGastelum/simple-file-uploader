@@ -55,7 +55,7 @@ module.exports = {
     historyApiFallback: true,
     contentBase: path.join(__dirname, 'public'),
     hot: true,
-    port: 3000,
+    port: dotenv.parsed.PORT,
   },
   plugins: [htmlPlugin, dotenvPlugin],
 };

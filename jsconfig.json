@@ -6,7 +6,7 @@
       "components/*": ["./components/*"],
       "pages/*": ["./pages/*"],
       "app/*": ["./app/*"],
-      "hooks/*": ["./hooks/*"],
+      "hooks/*": ["./hooks/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*"]

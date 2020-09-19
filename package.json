@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --hot",
     "dev": "webpack -w --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@mux/upchunk": "^2.0.0",
     "normalize.css": "^8.0.1",
+    "prettier": "^2.1.2",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

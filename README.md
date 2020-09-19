@@ -1,1 +1,1 @@
-# Simple Mux FileUploader Example In React 
+# Simple Mux FileUploader Example In React

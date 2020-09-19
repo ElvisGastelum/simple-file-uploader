@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@mux/upchunk": "^2.0.0",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",

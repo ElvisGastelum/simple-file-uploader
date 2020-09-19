@@ -1,5 +1,13 @@
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env'),
+});
+
+const dotenvPlugin = new webpack.DefinePlugin({
+  'process.env': JSON.stringify(dotenv.parsed),
+});
 
 const htmlPlugin = new htmlWebpackPlugin({
   template: './public/index.html',
@@ -36,8 +44,10 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
-      'components': path.resolve(__dirname, 'src/components/'),
-      'pages': path.resolve(__dirname, 'src/pages/'),
+      components: path.resolve(__dirname, 'src/components/'),
+      pages: path.resolve(__dirname, 'src/pages/'),
+      app: path.resolve(__dirname, 'src/app/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
@@ -47,5 +57,5 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, dotenvPlugin],
 };

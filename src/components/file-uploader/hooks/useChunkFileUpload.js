@@ -15,7 +15,7 @@ const useChunkFileUpload = ({ endPoint, chunkSize }) => {
 
     const getUploadUrl = () =>
       fetch(endPoint, {
-        method: 'GET',
+        method: 'PUT',
         withCredentials: true,
         credentials: 'include',
         headers: {
